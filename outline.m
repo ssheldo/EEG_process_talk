@@ -205,7 +205,6 @@ grid on
     specCell({x,win.*x},Fs,512) % can see that the power of main component 
                         %is squashed, but edge effects are even more so.
  
- % Slides 10-23  !!!!!!!!!!!!!!!!!!!!!!!!!! 
  
 % =========================================================================    
 %% +++++++++++++++++++++++++++ Filtering ++++++++++++++++++++++++++++++++++ 
@@ -373,5 +372,22 @@ function spec(x, Fs, nFFT)
     figure
     plot(f,fft_x.*conj(fft_x))
     xlabel('frequency'); ylabel('power')
+end
+
+
+function specCell(xc, Fs, nFFT)
+% plots the spectra of input cell array xc containing signals
+figure
+col_vec = {'b','g','r','m'};
+    for i=1:numel(xc)
+        x = xc{i};
+        fft_x = fft(x,nFFT);
+        fft_x = fft_x(1:nFFT/2+1);
+
+        f = Fs/2*linspace(0,1,nFFT/2+1);
+
+        plot(f,fft_x.*conj(fft_x), col_vec{mod(i-1,4)+1}); hold on
+        xlabel('frequency'); ylabel('power')
+    end
 end
 
