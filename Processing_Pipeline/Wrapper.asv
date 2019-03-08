@@ -108,7 +108,7 @@ exp.padratio = 4;
 exp.freqrange = [exp.cycles(1) 40]; %when doing wavelet
 
 %% Epoching the data
-exp.epoch = 'on'; %on to epoch data; off to load previous data
+exp.epoch = 'off'; %on to epoch data; off to load previous data
 %%%indicates where you want to center your data (where time zero is)
 exp.epochs = {}; %must be list == length(exp.setname)
 exp.epochs_name = {};
@@ -118,7 +118,7 @@ exp.epochbaseline = [-200 0]; %remove the baseline for each epoched set, in ms. 
 
 %% Time-Frequency settings
 %Do you want to run time-frequency analyses? (on/off)
-exp.tf = 'on';
+exp.tf = 'off';
 %Do you want to use all the electrodes or just a few? Leave blank [] for 
 % all (will use same as exp.brainelecs)
 exp.tfelecs = [];
@@ -127,18 +127,25 @@ exp.tfelecs = [];
 exp.singletrials = 'on';
 %Saving the single trial data is memory intensive. Just use the electrodes
 % you need. 
-exp.singletrialselecs = [2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 19 20 21 22 25 26];
-exp.singtrlelec_name = {'Oz';'Pz';'Cz';'FCz';'Fz';'O1';'O2';'PO3';'PO4';...
-    'P7';'P8';'P5';'P6';'P3';'P4';'CP1';'CP2';'C3';'C4';'FC1';'FC2'};
+% exp.singletrialselecs = [2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 19 20 21 22 25 26];
+% exp.singtrlelec_name = {'Oz';'Pz';'Cz';'FCz';'Fz';'O1';'O2';'PO3';'PO4';...
+%     'P7';'P8';'P5';'P6';'P3';'P4';'CP1';'CP2';'C3';'C4';'FC1';'FC2'};
+
+exp.singletrialselecs = [2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32];
+exp.singtrlelec_name = {'Oz';'Pz';'Cz';'FCz';'Fz';'O1';'O2';'PO3';'PO4';'P7';'P8';'P5';'P6';'P3';'P4';'CP5';...
+    'CP6';'CP1';'CP2';'C3';'C4';'FC5';'FC6';'FC1';'FC2';'F7';'F8';'F3';'F4';'Fp1';'Fp2'};
+
 
 %% Save your pipeline settings
 save([exp.settings '_Settings'],'exp') %save these settings as a .mat file. This will help you remember what settings were used in each dataset
 
 
 
+
 %% Run Preprocessing
 Preprocessing(exp) %comment out if you're only doing analysis
-% Preprocessing_Example2(exp)
+
+
 
 %% Run Analysis
 %Don't want to change all the above settings? Load the settings from the saved .mat file.

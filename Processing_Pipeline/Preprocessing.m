@@ -71,9 +71,9 @@ for i_part = 1:nparts
     
     %Artifact rejection, trials with range >exp.preocularthresh uV
     if isempty(exp.preocularthresh) == 0
-    rejtrial = struct([]);
-    EEG = pop_eegthresh(EEG,1,[1:size(EEG.data,1)],exp.preocularthresh(1),exp.preocularthresh(2),EEG.xmin,EEG.xmax,0,1);
-    rejtrial(i_part,1).ids = find(EEG.reject.rejthresh==1);
+        rejtrial = struct([]);
+        EEG = pop_eegthresh(EEG,1,[1:size(EEG.data,1)],exp.preocularthresh(1),exp.preocularthresh(2),EEG.xmin,EEG.xmax,0,1);
+        rejtrial(i_part,1).ids = find(EEG.reject.rejthresh==1);
     end
     
     %EMCP occular correction
