@@ -94,7 +94,7 @@ for k=0:length(x_samples)-1
     hold;
     plot(t,x_samples(k+1)*sinc(l),'r')
     plot(t,x_recon);
-    hold off;
+    hold off; 
     waitforbuttonpress; 
     clc
 end

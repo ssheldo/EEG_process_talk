@@ -1,23 +1,17 @@
-% 2014 computational workshop
-%  signal processing
-%  
-%  Aaron Gruber
-%
-%
+
 
 %% Sampling theorem:
 
-% PPT: slides 1-6 !!!!!!!!!!!!!!!!!!!!!!!!
 
     % pick a sampling frequency
     Fs = 120;
 
     % pick times of sampling
     t=0:1/Fs:1;
-    w=12 % pick a signal frequency
+    w=12; % pick a signal frequency
     y = sin(w*t*2*pi);
     
-    plot(t, y, 'LineWidth',2); hold on
+    figure; plot(t, y, 'LineWidth',2); hold on
     
     % downsample the signal to 60 Hz
     t_60Hz = t(1:2:end);
@@ -169,8 +163,6 @@ grid on
 % What if number of input samples is less than 100?
 % What if number of FFT is smaller than number of samples?
 % What if number of iFFT is smaller than FFT?
-   
-% Slides 10-15  !!!!!!!!!!!!!!!!!!!!!!!!!!! 
    
 % MAKE SPEC function for plotting spectra
 
@@ -326,13 +318,12 @@ s2 = conv(s1, hat, 'same'); % convolution again
 plot(s2)
 % edge detector - contrast enhancement in vision
 
-% slide 24 !!!!!!!!!!!!!!!!!!!!!!!!!
+
 
 % phase lag
 %
 % all the kernels we have used so far have been symmetric
-%  - what does that require? Hint, think of Kelvin's talk about
-%  causal/non-causal
+%  - what does that require? Hint, think about causal/non-causal
 %  - knowledge in the future and the past
 %  - you can do this after you have the signal
 %  - * but what about the digitizer on your recording rig?
@@ -364,7 +355,6 @@ plot(s2_C,'g')
 % you have to be very careful about introducing phase shifts when
 % filtering your data !!!!!
 
-% SLIDE 25-27
 
 
 

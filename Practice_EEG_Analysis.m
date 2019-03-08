@@ -66,6 +66,7 @@ type = 'band'; %type of filter
 % Output is:
 %            Y_filt - same as Y but not filtered
 
+figure
 subplot(2,1,1); plot(times,data);
     xlabel('Time (sec)');
     ylabel('Voltage (uV)');
