@@ -44,9 +44,9 @@ figure; plot(times,data);
 %here we will use a bandpass filter to filter our everything but alpha
 %oscillations. 
 
-high_pass = 6; %lower cutoff
-low_pass = 14; %upper cutoff
-order = 2; %order of polynomial used in the filter, can be increased to sharpen the dropoff of the filter
+high_pass = 8; %lower cutoff
+low_pass = 12; %upper cutoff
+order = 4; %order of polynomial used in the filter, can be increased to sharpen the dropoff of the filter
 type = 'band'; %type of filter
 [filt_data] = illini_filter(data',srate,high_pass,low_pass,order,'band'); %run the filter (which plots a graph)
 

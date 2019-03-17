@@ -14,7 +14,9 @@ L = numel(x);
 noisy_x = x+.5*randn(1,L);  % Signal Corrupted with Zero-Mean Random Noise
 
 % FFT
-NFFT = pow2(nextpow2(L));  % equivalent to 2^(nextpow2(L))
+NFFT = pow2(nextpow2(L));  % equivalent to 2^(nextpow2(L)) 
+              % {nextpow2 is function that returns exp of next higher power
+              % of 2}
 % NFFT = 301;
 fft_x = fft(x,NFFT);        % take FFT
 fft_noisy_x = fft(noisy_x,NFFT);
